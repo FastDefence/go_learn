@@ -1,0 +1,35 @@
+#appの下に追加
+services:
+  db:
+    image: mysql:8.0
+    container_name: 'db'
+    volumes:
+      - ./mysql/db:/docker-entrypoint-initdb.d # 初期データ
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment: #databaseのユーザー情報を定義
+      MYSQL_DATABASE: goleran_db
+      MYSQL_USER: golearn
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
+      TZ: 'Asia/Tokyo'
+    ports:
+      - '3306:3306'
+    restart: always
+
+  api:
+    container_name: 'api'
+    build:
+      context: .docker
+      dockerfile: api.Dockerfile
+    volumes:
+      - ./api:/go/src/api
+    environment:
+      ADMIN_NAME: admin
+      ADMIN_PASS: password
+    ports:
+      - '1323:1323'
+    command: './start.sh'
+    depends_on:
+      - 'db'
+    tty: true
+    stdin_open: true
