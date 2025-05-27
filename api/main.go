@@ -3,6 +3,9 @@ package main
 import (
 	"net/http"
 
+	_ "github.com/FastDefence/go_learn/api/docs"
+	echoSwagger "github.com/swaggo/echo-swagger"
+
 	"github.com/labstack/echo/v4"
 
 	"github.com/FastDefence/go_learn/api/model"
@@ -45,4 +48,5 @@ func main() {
 	e.GET("/", connect)
 	//ポートを開く、docker-compose.ymlと同じポート番号にする
 	e.Logger.Fatal(e.Start(":1323"))
+	e.GET("/swagger/*", echoSwagger.WrapHandler)
 }
