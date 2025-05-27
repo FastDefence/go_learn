@@ -3,6 +3,7 @@ package model
 import (
 	"log"
 
+	"github.com/FastDefence/go_learn/api/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )

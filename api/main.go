@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	_ "github.com/FastDefence/go_learn/api/docs" // docsを読み込む
 	echoSwagger "github.com/swaggo/echo-swagger"
 
 	"github.com/labstack/echo/v4"
@@ -48,5 +49,6 @@ func main() {
 	e.POST("/users", controller.CreateUser)
 
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
+
 	e.Logger.Fatal(e.Start(":1323"))
 }

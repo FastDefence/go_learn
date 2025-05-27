@@ -8,7 +8,7 @@ import (
 )
 
 func CreateUser(c echo.Context) error {
-	nema := c.queryParam("name")
+	name := c.QueryParam("name")
 
 	user := model.User{
 		Name: name,
