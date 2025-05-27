@@ -3,11 +3,11 @@ package main
 import (
 	"net/http"
 
-	_ "github.com/FastDefence/go_learn/api/docs"
 	echoSwagger "github.com/swaggo/echo-swagger"
 
 	"github.com/labstack/echo/v4"
 
+	"github.com/FastDefence/go_learn/api/controller"
 	"github.com/FastDefence/go_learn/api/model"
 )
 
@@ -42,11 +42,11 @@ type (
 // @schemes http
 
 func main() {
-	//echoを起動
 	e := echo.New()
-	//path指定して処理を実行させる
 	e.GET("/", connect)
-	//ポートを開く、docker-compose.ymlと同じポート番号にする
-	e.Logger.Fatal(e.Start(":1323"))
+
+	e.POST("/users", controller.CreateUser)
+
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
+	e.Logger.Fatal(e.Start(":1323"))
 }
