@@ -19,6 +19,25 @@ func connect(c echo.Context) error {
 	}
 }
 
+type (
+	Response struct {
+		Int64  int64  `json:"int64"`
+		String string `json:"string"`
+		World  *Item  `json:"world"`
+	}
+
+	Item struct {
+		Text string `json:"text"`
+	}
+)
+
+// @title go_learn API
+// @version 1.0
+// @description go_learn API
+// @host localhost:1323
+// @BasePath /
+// @schemes http
+
 func main() {
 	//echoを起動
 	e := echo.New()
