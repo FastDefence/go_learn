@@ -24,6 +24,7 @@ const docTemplate = `{
 						"type": "string",
 						"in": "query",
 						"description": "ユーザー名",
+						"required": true,
 					}
 				],
 				"responses": {
@@ -47,6 +48,15 @@ const docTemplate = `{
 		"/users/{id}": {
 			"get": {
 				"description": "show users",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "ユーザーID",
+						"required": true,
+					}
+				],
 				"responses": {
 					"200": {
 					"description": "Created user",

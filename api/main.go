@@ -50,6 +50,7 @@ func main() {
 	e.GET("/users", controller.GetUsers)
 	e.GET("/users/:id", controller.GetUser)
 	e.PUT("/users/:id", controller.UpdateUser)
+	e.DELETE("user/:id", controller.DeleteUser)
 
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
 
