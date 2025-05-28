@@ -47,6 +47,8 @@ func main() {
 	e.GET("/", connect)
 
 	e.POST("/users", controller.CreateUser)
+	e.GET("/users", controller.GetUsers)
+	e.GET("/users/:id", controller.GetUser)
 
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
 

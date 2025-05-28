@@ -14,7 +14,50 @@ const docTemplate = `{
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
-    "paths": {}
+    "paths": {
+		"/users": {
+			"post": {
+				"description": "write on username",
+				"parameters": [
+					{
+						"name": "name",
+						"type": "string",
+						"in": "query",
+						"description": "ユーザー名",
+					}
+				],
+				"responses":{
+					"200":{
+					"description":"Created user",
+					}
+				}
+			}
+			"get": {
+				"description": "show users",
+				"responses":{
+					"200":{
+					"description":"Created user",
+					"schema":{
+						"type":"array",
+						}
+					}
+				}
+			}
+		},
+		"/users/{id}": {
+			"get": {
+				"description": "show users",
+				"responses":{
+					"200":{
+					"description":"Created user",
+					"schema":{
+						"type":"array",
+						}
+					}
+				}
+			}
+		}
+	}
 }`
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
