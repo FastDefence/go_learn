@@ -1,6 +1,6 @@
 #Dockerfile
 # Go-version
-FROM golang:1.19.1-alpine
+FROM golang:latest
 # アップデートとgitのインストール！！
 RUN apk update && apk add git
 # appディレクトリの作成

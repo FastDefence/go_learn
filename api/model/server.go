@@ -3,7 +3,6 @@ package model
 import (
 	"log"
 
-	"github.com/FastDefence/go_learn/api/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -17,5 +16,5 @@ func init() {
 	if err != nil {
 		log.Fatalln(dsn + "database can't connect")
 	}
-	DB.AutoMigrate(model.User{})
+	DB.AutoMigrate(&User{})
 }

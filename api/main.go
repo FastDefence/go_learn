@@ -4,12 +4,12 @@ import (
 	"net/http"
 
 	_ "github.com/FastDefence/go_learn/api/docs" // docsを読み込む
+	"github.com/FastDefence/go_learn/api/model"
 	echoSwagger "github.com/swaggo/echo-swagger"
 
 	"github.com/labstack/echo/v4"
 
 	"github.com/FastDefence/go_learn/api/controller"
-	"github.com/FastDefence/go_learn/api/model"
 )
 
 func connect(c echo.Context) error {
