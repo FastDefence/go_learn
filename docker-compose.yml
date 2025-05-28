@@ -1,4 +1,3 @@
-version: "3" # composeファイルのバージョン
 services:
   app: # サービス名
       container_name: go
