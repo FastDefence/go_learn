@@ -4,17 +4,17 @@ package docs
 import "github.com/swaggo/swag"
 
 const docTemplate = `{
-    "schemes": {{ marshal .Schemes }},
-    "swagger": "2.0",
-    "info": {
-        "description": "{{escape .Description}}",
-        "title": "{{.Title}}",
-        "contact": {},
-        "version": "{{.Version}}"
-    },
-    "host": "{{.Host}}",
-    "basePath": "{{.BasePath}}",
-    "paths": {
+	"schemes": {{ marshal .Schemes }},
+	"swagger": "2.0",
+	"info": {
+		"description": "{{ escape .Description }}",
+		"title": "{{ .Title }}",
+		"contact": {},
+		"version": "{{ .Version }}"
+	},
+	"host": "{{ .Host }}",
+	"basePath": "{{ .BasePath }}",
+	"paths": {
 		"/users": {
 			"post": {
 				"description": "write on username",
@@ -26,19 +26,19 @@ const docTemplate = `{
 						"description": "ユーザー名",
 					}
 				],
-				"responses":{
-					"200":{
-					"description":"Created user",
+				"responses": {
+					"200": {
+					"description": "Created user",
 					}
 				}
 			},
 			"get": {
 				"description": "show users",
-				"responses":{
-					"200":{
-					"description":"Created user",
-					"schema":{
-						"type":"array",
+				"responses": {
+					"200": {
+					"description": "Created user",
+					"schema": {
+						"type": "array",
 						}
 					}
 				}
@@ -47,11 +47,35 @@ const docTemplate = `{
 		"/users/{id}": {
 			"get": {
 				"description": "show users",
+				"responses": {
+					"200": {
+					"description": "Created user",
+					"schema": {
+						"type": "array"
+						}
+					}
+				}
+			},
+			"put": {
+				"description": "change on username",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "ユーザーID",
+						"required": true,
+					},
+					{
+						"name": "name",
+						"type": "string",
+						"in": "query",
+						"description": "ユーザー名",
+					}
+				],
 				"responses":{
 					"200":{
-					"description":"Created user",
-					"schema":{
-						"type":"array",
+					"description":"Updated user",
 					}
 				}
 			},

@@ -49,6 +49,7 @@ func main() {
 	e.POST("/users", controller.CreateUser)
 	e.GET("/users", controller.GetUsers)
 	e.GET("/users/:id", controller.GetUser)
+	e.PUT("/users/:id", controller.UpateUser)
 
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
 
