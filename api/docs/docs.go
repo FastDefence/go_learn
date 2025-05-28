@@ -73,9 +73,26 @@ const docTemplate = `{
 						"description": "ユーザー名",
 					}
 				],
-				"responses":{
-					"200":{
-					"description":"Updated user",
+				"responses": {
+					"200": {
+					"description": "Updated user",
+					}
+				}
+			},
+			"delete": {
+				"description": "change on username",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "ユーザーID",
+						"required": true,
+					}
+				],
+				"responses": {
+					"200": {
+					"description": "Updated user",
 					}
 				}
 			},
